@@ -17,10 +17,10 @@ on:
 jobs:
   semgrep:
     permissions:
-      id-token: write
-      contents: read
-      security-events: write
-      actions: read
+        contents: read           # pour checkout et lecture du code source
+        actions: read            # pour lire le contexte d'exécution GitHub Actions
+        id-token: write          # pour l'authentification OIDC si besoin
+        security-events: write   # pour uploader les fichiers SARIF dans GHAS
     timeout-minutes: 60
     runs-on: [self-hosted, Linux, standard]
     steps:
